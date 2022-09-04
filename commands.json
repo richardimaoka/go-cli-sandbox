@@ -1,5 +1,5 @@
 [
-  { "command": "echo abc" },
-  { "command": "echo efg" },
-  { "command": "echo hijk" }
+  { "commandExecutable": "echo", "commandArgs": ["abc"] },
+  { "commandExecutable": "echo", "commandArgs": ["def"] },
+  { "commandExecutable": "echo", "commandArgs": ["ghi", "jklmn"] }
 ]

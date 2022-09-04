@@ -8,10 +8,6 @@ import (
 	"os/exec"
 )
 
-type Command struct {
-	Command string
-}
-
 func readFromStdIo() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
@@ -31,16 +27,29 @@ func readFromStdIo() {
 }
 
 func main() {
+	type CommandData struct {
+		CommandExecutable string
+		CommandArgs       []string
+	}
+
 	data, err := os.ReadFile("commands.json")
 	if err != nil {
 		fmt.Println("ERROR reading commands.json")
 	}
 
-	var command []Command
-	err = json.Unmarshal(data, &command)
+	var commandDataArray []CommandData
+	err = json.Unmarshal(data, &commandDataArray)
 	if err != nil {
 		fmt.Println("json.Unmarshal error")
 	}
-	fmt.Println(command)
+
+	for _, cmdData := range commandDataArray {
+		out, err := exec.Command(cmdData.CommandExecutable, cmdData.CommandArgs...).Output()
+		if err != nil {
+			fmt.Printf("ERROR: %s\n", err)
+			continue
+		}
+		fmt.Printf("%s", out)
+	}
 
 }
