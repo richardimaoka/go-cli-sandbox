@@ -13,5 +13,8 @@
     "command": "echo ghi jklm",
     "commandExecutable": "echo",
     "commandArgs": ["ghi", "jklmn"]
+  },
+  {
+    "command": "gh repo create pull-req-merge-experiments  # GitHub上のレポジトリ名 pull-req-merge-experiments\n  --public       # public レポジトリとして作成\n  --source=.     # ローカルレポジトリのパスは.\n  --remote=origin # リモートレポジトリをoriginに指定\n"
   }
 ]

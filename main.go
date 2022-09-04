@@ -45,12 +45,14 @@ func main() {
 	}
 
 	for _, cmdData := range commandDataArray {
-		out, err := exec.Command("sh", "-c", cmdData.Command).Output()
+		cmd := exec.Command("sh", "-c", cmdData.Command)
+		fmt.Println(cmdData.Command)
+		out, err := cmd.Output()
 		if err != nil {
 			fmt.Printf("ERROR: %s\n", err)
 			continue
 		}
-		fmt.Printf("%s", out)
+		fmt.Printf("%s\n", out)
 	}
 
 }
