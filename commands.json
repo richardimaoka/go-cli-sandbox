@@ -15,12 +15,9 @@
     "commandArgs": ["ghi", "jklmn"]
   },
   {
-    "command": "gh repo create pull-req-merge-experiments \\\n  --public \\\n  --source=. \\\n  --remote=origin"
+    "command": "echo \\\n  abcdef"
   },
   {
-    "command": "cat << EOF > pull-req-merge-commit.txt\\\na\\\n\\\nb\\\n\\\nc\\\n\\\nEOF"
-  },
-  { "command": "git add --all" },
-  { "command": "git commit -m \"create pull-req-merge-commit.txt\"" },
-  { "command": "git push origin main" }
+    "command": "cat << EOF > pull-req-merge-commit.txt\na\n\nb\n\nc\n\nEOF"
+  }
 ]
