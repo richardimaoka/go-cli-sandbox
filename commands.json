@@ -19,5 +19,11 @@
   },
   {
     "command": "cat << EOF > pull-req-merge-commit.txt\na\n\nb\n\nc\n\nEOF"
+  },
+  {
+    "command": "dog"
+  },
+  {
+    "command": "elephant"
   }
 ]

@@ -27,7 +27,12 @@ func readFromStdIo() {
 }
 
 func main() {
-	type CommandData struct {
+	// reader := bufio.NewReader(os.Stdin)
+	// fmt.Print("Enter text: ")
+	// text, _ := reader.ReadString('\n')
+	// fmt.Println(text)
+
+	type CommandStep struct {
 		Command           string
 		CommandExecutable string
 		CommandArgs       []string
@@ -36,20 +41,21 @@ func main() {
 	data, err := os.ReadFile("commands.json")
 	if err != nil {
 		fmt.Println("ERROR reading commands.json")
+		os.Exit(1)
 	}
 
-	var commandDataArray []CommandData
-	err = json.Unmarshal(data, &commandDataArray)
+	var commands []CommandStep
+	err = json.Unmarshal(data, &commands)
 	if err != nil {
 		fmt.Println("json.Unmarshal error")
 	}
 
-	for _, cmdData := range commandDataArray {
+	for _, cmdData := range commands {
 		cmd := exec.Command("sh", "-c", cmdData.Command)
 		fmt.Println(cmdData.Command)
-		out, err := cmd.Output()
+		out, err := cmd.CombinedOutput()
 		if err != nil {
-			fmt.Printf("ERROR: %s\n", err)
+			fmt.Printf("ERROR: happened\n%s", out)
 			continue
 		}
 		fmt.Printf("%s\n", out)
