@@ -1,0 +1,5 @@
+[
+  { "command": "echo abc" },
+  { "command": "echo efg" },
+  { "command": "echo hijk" }
+]
