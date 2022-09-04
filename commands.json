@@ -1,5 +1,17 @@
 [
-  { "commandExecutable": "echo", "commandArgs": ["abc"] },
-  { "commandExecutable": "echo", "commandArgs": ["def"] },
-  { "commandExecutable": "echo", "commandArgs": ["ghi", "jklmn"] }
+  {
+    "command": "echo abc",
+    "commandExecutable": "echo",
+    "commandArgs": ["abc"]
+  },
+  {
+    "command": "echo def",
+    "commandExecutable": "echo",
+    "commandArgs": ["def"]
+  },
+  {
+    "command": "echo ghi jklm",
+    "commandExecutable": "echo",
+    "commandArgs": ["ghi", "jklmn"]
+  }
 ]

@@ -28,6 +28,7 @@ func readFromStdIo() {
 
 func main() {
 	type CommandData struct {
+		Command           string
 		CommandExecutable string
 		CommandArgs       []string
 	}
@@ -44,7 +45,7 @@ func main() {
 	}
 
 	for _, cmdData := range commandDataArray {
-		out, err := exec.Command(cmdData.CommandExecutable, cmdData.CommandArgs...).Output()
+		out, err := exec.Command("sh", "-c", cmdData.Command).Output()
 		if err != nil {
 			fmt.Printf("ERROR: %s\n", err)
 			continue
