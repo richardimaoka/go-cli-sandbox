@@ -1,11 +1,16 @@
 package main
 
 import (
+	"errors"
+	"strconv"
+
 	"bufio"
 	"encoding/json"
 	"fmt"
 	"os"
 	"os/exec"
+
+	"github.com/manifoldco/promptui"
 )
 
 func readFromStdIo() {
@@ -26,11 +31,11 @@ func readFromStdIo() {
 	fmt.Println("終了します。")
 }
 
-func main() {
-	// reader := bufio.NewReader(os.Stdin)
-	// fmt.Print("Enter text: ")
-	// text, _ := reader.ReadString('\n')
-	// fmt.Println(text)
+func readjson() {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Enter text: ")
+	text, _ := reader.ReadByte()
+	fmt.Println(text)
 
 	type CommandStep struct {
 		Command           string
@@ -61,4 +66,32 @@ func main() {
 		fmt.Printf("%s\n", out)
 	}
 
+}
+
+func prompt() {
+	validate := func(input string) error {
+		_, err := strconv.ParseFloat(input, 64)
+		if err != nil {
+			return errors.New("Invalid number")
+		}
+		return nil
+	}
+
+	prompt := promptui.Prompt{
+		Label:    "Number",
+		Validate: validate,
+	}
+
+	result, err := prompt.Run()
+
+	if err != nil {
+		fmt.Printf("Prompt failed %v\n", err)
+		return
+	}
+
+	fmt.Printf("You choose %q\n", result)
+}
+
+func main() {
+	prompt()
 }
