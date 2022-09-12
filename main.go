@@ -5,6 +5,7 @@ import (
 	"errors"
 	"log"
 	"strconv"
+	"strings"
 
 	"bufio"
 	"encoding/json"
@@ -121,6 +122,18 @@ func login() {
 	fmt.Printf("successfully executed\n")
 }
 
+func tr() {
+	cmd := exec.Command("tr", "a-z", "A-Z")
+	cmd.Stdin = strings.NewReader("some input")
+	var out bytes.Buffer
+	cmd.Stdout = &out
+	err := cmd.Run()
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("in all caps: %q\n", out.String())
+}
+
 func main() {
-	login()
+	tr()
 }
