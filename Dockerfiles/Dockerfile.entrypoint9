@@ -1,0 +1,3 @@
+FROM ubuntu
+ENTRYPOINT ["echo", "abc"]
+ENTRYPOINT ["echo", "def"]
