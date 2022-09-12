@@ -96,7 +96,7 @@ func prompt() {
 func lookPath() {
 	path, err := exec.LookPath("go")
 	if err != nil {
-		log.Fatal("installing fortune is in your future")
+		log.Fatalf("installing fortune is in your future %s", err)
 	}
 	fmt.Printf("fortune is available at %s\n", path)
 }
