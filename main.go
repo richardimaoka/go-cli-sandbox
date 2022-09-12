@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"errors"
 	"log"
 	"strconv"
@@ -101,6 +102,25 @@ func lookPath() {
 	fmt.Printf("fortune is available at %s\n", path)
 }
 
+func login() {
+	cmd := "echo"
+	login := exec.Command(cmd, "login")
+
+	buffer := bytes.Buffer{}
+	buffer.Write([]byte("username\npassword\n"))
+	login.Stdin = &buffer
+
+	login.Stdout = os.Stdout
+	login.Stderr = os.Stderr
+
+	err := login.Run()
+	if err != nil {
+		fmt.Printf("error occurred %s\n", err)
+		fmt.Fprintln(os.Stderr, err)
+	}
+	fmt.Printf("successfully executed\n")
+}
+
 func main() {
-	lookPath()
+	login()
 }

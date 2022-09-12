@@ -1,0 +1,35 @@
+[
+  {
+    "command": "docker build -t cmd-nginx -f Dockerfile.cmd-nginx ."
+  },
+  {
+    "command": "docker run --rm cmd-nginx"
+  },
+  {
+    "command": "Ctrl+c"
+  },
+  {
+    "command": "docker stop cnt-cmd-nginx"
+  },
+  {
+    "command": "docker exec -it cnt-cmd7 /bin/sh"
+  },
+  {
+    "command": ""
+  },
+  {
+    "command": ""
+  },
+  {
+    "command": ""
+  },
+  {
+    "command": ""
+  },
+  {
+    "command": ""
+  },
+  {
+    "command": ""
+  }
+]
