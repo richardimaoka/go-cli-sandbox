@@ -24,7 +24,7 @@
     "command": "dog"
   },
   {
-    "command": "elephant"
+    "command": "docker build -t cmd-and-entrypoint2 -f Dockerfile.cmd-and-entrypoint2 ."
   },
   {
     "command": "echo $HOME"

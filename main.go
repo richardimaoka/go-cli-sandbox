@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"log"
 	"strconv"
 
 	"bufio"
@@ -60,10 +61,10 @@ func readjson() {
 		fmt.Println(cmdData.Command)
 		out, err := cmd.CombinedOutput()
 		if err != nil {
-			fmt.Printf("ERROR: happened\n%s", out)
+			fmt.Printf("ERROR: %s\n", out)
 			continue
 		}
-		fmt.Printf("%s\n", out)
+		fmt.Printf("%s\n\n", out)
 	}
 
 }
@@ -92,6 +93,14 @@ func prompt() {
 	fmt.Printf("You choose %q\n", result)
 }
 
+func lookPath() {
+	path, err := exec.LookPath("go")
+	if err != nil {
+		log.Fatal("installing fortune is in your future")
+	}
+	fmt.Printf("fortune is available at %s\n", path)
+}
+
 func main() {
-	readjson()
+	lookPath()
 }
