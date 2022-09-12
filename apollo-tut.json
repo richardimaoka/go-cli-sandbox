@@ -1,0 +1,46 @@
+[
+  {
+    "terminal": "main",
+    "command": "git clone https://github.com/richardimaoka/tutorial-apollo-employee-division.git"
+  },
+  {
+    "terminal": "main",
+    "command": "cd tutorial-apollo-employee-division"
+  },
+  {
+    "terminal": "graphql",
+    "command": "git apply patches/201ea30.patch"
+  },
+  {
+    "terminal": "graphql",
+    "command": "git apply patches/f482a1d.patch"
+  },
+  {
+    "terminal": "graphql",
+    "command": "git apply patches/b979ec5.patch"
+  },
+  {
+    "terminal": "graphql",
+    "command": "git apply patches/425a387.patch"
+  },
+  {
+    "terminal": "graphql",
+    "command": "git apply patches/5847c01.patch"
+  },
+  {
+    "terminal": "graphql",
+    "command": "git apply patches/ac56d80.patch"
+  },
+  {
+    "terminal": "graphql",
+    "command": "cd server"
+  },
+  {
+    "terminal": "graphql",
+    "command": "npm install"
+  },
+  {
+    "terminal": "graphql",
+    "command": "npm run server-start"
+  }
+]
