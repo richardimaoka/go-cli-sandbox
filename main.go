@@ -5,7 +5,7 @@ import (
 	"errors"
 	"log"
 	"strconv"
-	"strings"
+	"time"
 
 	"bufio"
 	"encoding/json"
@@ -124,7 +124,7 @@ func login() {
 
 func tr() {
 	cmd := exec.Command("tr", "a-z", "A-Z")
-	cmd.Stdin = strings.NewReader("some input")
+	// cmd.Stdin = strings.NewReader("some input")
 	var out bytes.Buffer
 	cmd.Stdout = &out
 	err := cmd.Run()
@@ -134,6 +134,22 @@ func tr() {
 	fmt.Printf("in all caps: %q\n", out.String())
 }
 
+func clear() {
+	fmt.Println("this is a line")
+	fmt.Println("this is a line")
+	fmt.Println("this is a line")
+	fmt.Println("this is a line")
+	fmt.Println("this is a line")
+
+	fmt.Println("Clearing Screen in 2s...")
+
+	// sleep for 2 seconds
+	duration, _ := time.ParseDuration("2s")
+	time.Sleep(duration)
+
+	fmt.Print("\033[H\033[J")
+}
+
 func main() {
-	tr()
+	clear()
 }
